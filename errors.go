@@ -13,3 +13,9 @@ func ErrorCheck(err error, setting string) {
 		os.Exit(1)
 	}
 }
+
+// Faile prints a message and calls os.Exit(1)
+func Fail(args ...interface{}) {
+	fmt.Println(args...)
+	os.Exit(1)
+}
