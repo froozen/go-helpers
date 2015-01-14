@@ -22,3 +22,18 @@ func ReadFile(filename string) (string, error) {
 
 	return string(all), nil
 }
+
+// IsFile checks wether name corresponds to a file
+func IsFile(name string) bool {
+	_, err := os.Open(name)
+	return err == nil
+}
+
+// IsDir checks wether name corresponds to a directory
+func IsDir(name string) bool {
+	dir, err := os.Stat(name)
+	if err != nil {
+		return false
+	}
+	return dir.IsDir()
+}
